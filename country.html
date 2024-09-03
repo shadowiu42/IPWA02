@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>CO2 Emissions Details</title>
+</h:head>
+<h:body>
+    <h1>CO2 Emissions for #{countryBean.selectedCountry.name}</h1>
+
+    <h:form>
+        <p:dataTable value="#{emissionBean.emissionList}" var="emission" styleClass="dataTable">
+            <p:column headerText="Year">
+                <h:outputText value="#{emission.year}" />
+            </p:column>
+            <p:column headerText="CO2 Emissions (Tons)">
+                <h:outputText value="#{emission.emissionValue}" />
+            </p:column>
+        </p:dataTable>
+        
+        <h:commandLink value="Back" action="index.xhtml?faces-redirect=true" />
+    </h:form>
+</h:body>
+</html>
